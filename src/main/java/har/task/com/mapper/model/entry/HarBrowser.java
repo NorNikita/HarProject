@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-class Browser {
+class HarBrowser {
 
     private String name;
     private String version;

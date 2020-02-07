@@ -19,7 +19,7 @@ public class HarFile {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "browser")
+    @Column(name = "harBrowser")
     private String browser;
 
     @Column(name = "version")
