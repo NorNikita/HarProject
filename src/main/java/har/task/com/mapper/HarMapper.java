@@ -11,19 +11,18 @@ import java.io.IOException;
 
 @Component
 public class HarMapper {
+
     private ObjectMapper mapper;
-    private SimpleModule simpleModule;
 
     public HarMapper() {
         mapper = new ObjectMapper();
-        simpleModule = new SimpleModule();
-        mapper.registerModule(simpleModule);
+        mapper.registerModule(new SimpleModule());
     }
 
     public Har mapFromFile(MultipartFile multipartFile) throws IOException {
 
         try {
-            File file = new File(multipartFile.getName());
+            File file = new File("/home/nikita/" + multipartFile.getName());
             multipartFile.transferTo(file);
             Har har = mapper.readValue(file, Har.class);
             file.delete();

@@ -1,27 +1,32 @@
 databaseChangeLog:
 
-  -changeSet:
+- changeSet:
     id: 1
     author: nikita_nor
     changes:
-      - createTable: har_file
-        columns:
-          - column:
-              name: id
-              type: BIGINT
-              autoIncrement: true
-              constraints:
-                primaryKey: true
-                nullable: false
+      - createTable:
+          tableName: har_file
+          columns:
+            - column:
+                name: id
+                type: BIGINT
+                autoIncrement: true
+                constraints:
+                  primaryKey: true
+                  nullable: false
 
-          - column:
-              name: browser
-              type: varchar(30)
+            - column:
+                name: browser
+                type: varchar(50)
+                constraints:
+                  nullable: true
 
-          - column:
-              name: version
-              type: varchar(20)
+            - column:
+                name: version
+                type: varchar(50)
+                constraints:
+                  nullable: true
 
-          -column:
-              name: content
-              type: json
+            - column:
+                name: content
+                type: json
