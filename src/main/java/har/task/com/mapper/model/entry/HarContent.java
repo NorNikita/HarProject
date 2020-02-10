@@ -9,14 +9,11 @@ import lombok.Setter;
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-class HarTimings {
+class HarContent {
 
-    private Long blocked;
-    private Long dns;
-    private Long connect;
-    private Long send;
-    private Long wait;
-    private Long receive;
-    private Long ssl;
+    private Long size;
+    private Long compression;
+    private String mimeType;
+    private String text;
     private String comment;
 }

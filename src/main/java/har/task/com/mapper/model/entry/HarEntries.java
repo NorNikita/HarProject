@@ -26,7 +26,7 @@ class HarEntries {
     private HarCache cache;
     private HarTimings timings;
 
-    private String serverIPAdress;
+    private String serverIPAddress;
     private String connection;
     private String comment;
 
