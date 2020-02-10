@@ -12,7 +12,7 @@ import java.util.List;
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class HarRequest {
+class HarRequest {
 
     private String method;
     private String url;
