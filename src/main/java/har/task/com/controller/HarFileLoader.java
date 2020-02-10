@@ -1,6 +1,6 @@
 package har.task.com.controller;
 
-import har.task.com.service.HarService;
+import har.task.com.service.IHarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -13,10 +13,10 @@ import java.io.IOException;
 @Controller
 public class HarFileLoader {
 
-    private HarService service;
+    private IHarService service;
 
     @Autowired
-    public HarFileLoader(HarService service) {
+    public HarFileLoader(IHarService service) {
         this.service = service;
     }
 

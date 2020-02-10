@@ -1,10 +1,11 @@
-package har.task.com.service;
+package har.task.com.service.impl;
 
 import har.task.com.entity.HarFile;
 import har.task.com.mapper.HarMapper;
 import har.task.com.mapper.model.Har;
 import har.task.com.mapper.model.entry.HarLog;
 import har.task.com.repository.HarFileRepository;
+import har.task.com.service.IHarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 
 @Service
-public class HarService {
+public class HarServiceImpl implements IHarService {
 
     private HarMapper harMapper;
     private HarFileRepository repository;
@@ -24,11 +25,12 @@ public class HarService {
     private String path;
 
     @Autowired
-    public HarService(HarMapper harMapper, HarFileRepository repository) {
+    public HarServiceImpl(HarMapper harMapper, HarFileRepository repository) {
         this.harMapper = harMapper;
         this.repository = repository;
     }
 
+    @Override
     public void saveFile(MultipartFile multipartFile) throws IOException {
         File file = new File(path + multipartFile.getOriginalFilename());
         multipartFile.transferTo(file);
