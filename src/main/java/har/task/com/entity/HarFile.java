@@ -19,12 +19,18 @@ public class HarFile {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "harBrowser")
+    @Column(name = "browser")
     private String browser;
 
     @Column(name = "version")
     private String version;
 
-    @Column(name = "content")
+    @Column(name = "content", columnDefinition = "json")
     private String content;
+
+    public HarFile(String browser, String version, String content) {
+        this.browser = browser;
+        this.version = version;
+        this.content = content;
+    }
 }
