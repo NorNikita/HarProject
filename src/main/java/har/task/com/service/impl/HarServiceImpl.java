@@ -6,6 +6,7 @@ import har.task.com.mapper.model.Har;
 import har.task.com.mapper.model.entry.HarLog;
 import har.task.com.repository.HarFileRepository;
 import har.task.com.service.IHarService;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -20,18 +21,20 @@ public class HarServiceImpl implements IHarService {
 
     private HarMapper harMapper;
     private HarFileRepository repository;
+    private RabbitTemplate rabbitTemplate;
 
     @Value("${upload.path}")
     private String path;
 
     @Autowired
-    public HarServiceImpl(HarMapper harMapper, HarFileRepository repository) {
+    public HarServiceImpl(HarMapper harMapper, HarFileRepository repository, RabbitTemplate rabbitTemplate) {
         this.harMapper = harMapper;
         this.repository = repository;
+        this.rabbitTemplate = rabbitTemplate;
     }
 
     @Override
-    public void saveFile(MultipartFile multipartFile) throws IOException {
+    public HarFile saveFile(MultipartFile multipartFile) throws IOException {
         File file = new File(path + multipartFile.getOriginalFilename());
         multipartFile.transferTo(file);
 
@@ -43,6 +46,11 @@ public class HarServiceImpl implements IHarService {
         String content = new String(Files.readAllBytes(file.toPath()));
 
         file.deleteOnExit();
-        repository.save(new HarFile(version, nameBrowser, content));
+        return repository.save(new HarFile(version, nameBrowser, content));
+    }
+
+    @Override
+    public void sendContentInQueue(HarFile entity) {
+        rabbitTemplate.convertAndSend("harQueue", entity.getContent());
     }
 }

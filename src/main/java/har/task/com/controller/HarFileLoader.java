@@ -1,5 +1,6 @@
 package har.task.com.controller;
 
+import har.task.com.entity.HarFile;
 import har.task.com.service.IHarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,7 +23,8 @@ public class HarFileLoader {
 
     @PostMapping("/load")
     public ResponseEntity loadFile(@RequestParam(name = "file") MultipartFile multipartFile) throws IOException {
-        service.saveFile(multipartFile);
+        HarFile harFile = service.saveFile(multipartFile);
+        service.sendContentInQueue(harFile);
         return ResponseEntity.ok().build();
     }
 }

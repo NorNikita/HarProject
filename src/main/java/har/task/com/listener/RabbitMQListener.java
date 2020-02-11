@@ -1,6 +1,5 @@
 package har.task.com.listener;
 
-import har.task.com.entity.HarFile;
 import har.task.com.mapper.HarMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
@@ -14,11 +13,16 @@ import java.io.IOException;
 @EnableRabbit
 @Component
 public class RabbitMQListener {
-    @Autowired
+
     private HarMapper mapper;
 
+    @Autowired
+    public RabbitMQListener(HarMapper mapper) {
+        this.mapper = mapper;
+    }
+
     @RabbitListener(queues = "harQueue")
-    public void getHarFile(HarFile harFile) throws IOException {
-        log.info("getMessage {}", "some message");
+    public void getHarFile(String content) throws IOException {
+        log.info("Version {}", mapper.mapFromString(content).getLog().getVersion());
     }
 }

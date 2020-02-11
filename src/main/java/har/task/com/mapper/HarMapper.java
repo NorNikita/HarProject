@@ -21,4 +21,8 @@ public class HarMapper {
     public Har mapFromFile(File file) throws IOException {
         return mapper.readValue(file, Har.class);
     }
+
+    public Har mapFromString(String content) throws IOException {
+        return  mapper.readValue(content, Har.class);
+    }
 }
