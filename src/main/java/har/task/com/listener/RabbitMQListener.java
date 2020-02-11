@@ -1,6 +1,7 @@
 package har.task.com.listener;
 
 import har.task.com.mapper.HarMapper;
+import har.task.com.mapper.innermodel.TestProfile;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -23,6 +24,7 @@ public class RabbitMQListener {
 
     @RabbitListener(queues = "harQueue")
     public void getHarFile(String content) throws IOException {
-        log.info("Version {}", mapper.mapFromString(content).getLog().getVersion());
+        TestProfile testProfile = mapper.transformToInnerModel(content);
+        log.info("TestProfile contains {} requests", testProfile.getRequests().size());
     }
 }

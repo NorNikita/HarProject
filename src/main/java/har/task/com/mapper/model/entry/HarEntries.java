@@ -12,7 +12,7 @@ import java.util.Date;
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-class HarEntries {
+public class HarEntries {
 
     private String pageref;
 

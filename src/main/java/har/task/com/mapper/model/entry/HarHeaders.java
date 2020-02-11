@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-class HarHeaders {
+public class HarHeaders {
 
     private String name;
     private String value;

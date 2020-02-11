@@ -12,9 +12,9 @@ import java.util.List;
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-class HarRequest {
+public class HarRequest {
 
-    private String method;
+    private HttpMethod method;
     private String url;
     private String httpVersion;
     private List<HarCookies> cookies = new ArrayList<>();

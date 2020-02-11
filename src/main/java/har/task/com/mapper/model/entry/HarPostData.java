@@ -12,7 +12,7 @@ import java.util.List;
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-class HarPostData {
+public class HarPostData {
 
     private String mimeType;
     private List<HarParams> params = new ArrayList<>();

@@ -42,7 +42,7 @@ public class HarServiceImpl implements IHarService {
         HarLog log = har.getLog();
 
         String version = log.getVersion();
-        String nameBrowser = log.getBrowser().getName();
+        String nameBrowser = log.getBrowser() == null ? null : log.getBrowser().getName();
         String content = new String(Files.readAllBytes(file.toPath()));
 
         file.deleteOnExit();

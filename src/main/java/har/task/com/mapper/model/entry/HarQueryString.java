@@ -9,7 +9,7 @@ import lombok.Setter;
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-class HarQueryString {
+public class HarQueryString {
 
     private String name;
     private String value;
