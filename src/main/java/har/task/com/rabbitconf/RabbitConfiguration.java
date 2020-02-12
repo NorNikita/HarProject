@@ -32,5 +32,4 @@ public class RabbitConfiguration {
         return new Queue("harQueue");
     }
 
-
  }

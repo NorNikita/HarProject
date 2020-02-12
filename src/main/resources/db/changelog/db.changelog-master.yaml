@@ -1,5 +1,5 @@
 databaseChangeLog:
-
+- logicalFilePath: db/changelog/db.changelog-master.yaml
 - changeSet:
     id: 1
     author: nikita_nor
@@ -30,3 +30,5 @@ databaseChangeLog:
             - column:
                 name: content
                 type: json
+- include:
+      file: db/changelog/db.changelog-1.yaml

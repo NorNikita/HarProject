@@ -3,6 +3,7 @@ package har.task.com.controller;
 import har.task.com.mapper.model.Har;
 import har.task.com.service.IHarService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -27,7 +28,7 @@ public class HarController {
     @DeleteMapping("/delete/{id}")
     public ResponseEntity deleteFile(@PathVariable Long id) {
         service.deleteHarFile(id);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(HttpStatus.OK);
     }
 
     @PutMapping("/update/{id}")
