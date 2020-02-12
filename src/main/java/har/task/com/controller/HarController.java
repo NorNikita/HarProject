@@ -31,7 +31,7 @@ public class HarController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<Har> updateFile(@PathVariable Long id, @RequestBody MultipartFile multipartFile) throws IOException {
+    public ResponseEntity<Har> updateFile(@PathVariable Long id, @RequestParam(name = "file") MultipartFile multipartFile) throws IOException {
         return ResponseEntity.ok(service.updateHarFile(id, multipartFile));
     }
 }
