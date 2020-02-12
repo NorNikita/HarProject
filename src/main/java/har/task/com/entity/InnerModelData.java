@@ -22,7 +22,7 @@ public class InnerModelData {
     @Column(name = "count_request")
     private Long countRequest;
 
-    @Column(name = "data")
+    @Column(name = "data", columnDefinition = "json")
     private String data;
 
     public InnerModelData(Long countRequest, String data) {

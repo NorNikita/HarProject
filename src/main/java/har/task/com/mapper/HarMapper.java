@@ -1,5 +1,6 @@
 package har.task.com.mapper;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import har.task.com.mapper.innermodel.TestProfile;
@@ -51,6 +52,10 @@ public class HarMapper {
         }).collect(Collectors.toList()));
 
         return testProfile;
+    }
+
+    public String asString(TestProfile testProfile) throws JsonProcessingException {
+        return mapper.writeValueAsString(testProfile);
     }
 
     private Map<String, String> getParams(HarRequest harRequest) {

@@ -5,12 +5,13 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.io.Serializable;
 import java.util.Map;
 
 @Getter
 @Setter
 @AllArgsConstructor
-public class Request {
+public class Request implements Serializable {
 
     private String url;
     private String body;

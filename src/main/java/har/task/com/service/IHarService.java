@@ -17,4 +17,6 @@ public interface IHarService {
     void deleteHarFile(Long id);
 
     Har updateHarFile(Long id, MultipartFile multipartFile) throws IOException;
+
+    String saveModel(String content) throws IOException;
 }
