@@ -1,5 +1,6 @@
 package har.task.com.service.impl;
 
+import har.task.com.controller.exception.FileNotFoundException;
 import har.task.com.entity.HarFile;
 import har.task.com.mapper.HarMapper;
 import har.task.com.mapper.model.Har;
@@ -52,5 +53,35 @@ public class HarServiceImpl implements IHarService {
     @Override
     public void sendContentInQueue(HarFile entity) {
         rabbitTemplate.convertAndSend("harQueue", entity.getContent());
+    }
+
+    @Override
+    public Har getHarFile(Long id) throws IOException {
+        HarFile harFile = repository.findById(id).orElseThrow(() -> new FileNotFoundException("File with id = " + id + " not found"));
+        return harMapper.mapFromString(harFile.getContent());
+    }
+
+    @Override
+    public void deleteHarFile(Long id) {
+        repository.deleteById(id);
+    }
+
+    @Override
+    public Har updateHarFile(Long id, MultipartFile multipartFile) throws IOException {
+        HarFile harFile = repository.findById(id).orElseThrow(() -> new FileNotFoundException("File with id = " + id + " not found! Can not update"));
+        File file = new File(path + multipartFile.getOriginalFilename());
+        multipartFile.transferTo(file);
+
+        Har har = harMapper.mapFromFile(file);
+        HarLog log = har.getLog();
+
+        harFile.setVersion(log.getVersion());
+        harFile.setBrowser(log.getBrowser() == null ? null : log.getBrowser().getName());
+        String content = new String(Files.readAllBytes(file.toPath()));
+        harFile.setContent(content);
+
+        file.deleteOnExit();
+        repository.save(harFile);
+        return harMapper.mapFromString(content);
     }
 }
