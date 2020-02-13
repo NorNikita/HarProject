@@ -54,8 +54,8 @@ public class HarMapper {
         return testProfile;
     }
 
-    public String asString(TestProfile testProfile) throws JsonProcessingException {
-        return mapper.writeValueAsString(testProfile);
+    public String asString(Object object) throws JsonProcessingException {
+        return mapper.writeValueAsString(object);
     }
 
     private Map<String, String> getParams(HarRequest harRequest) {
