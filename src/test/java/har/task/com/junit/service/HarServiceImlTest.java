@@ -2,7 +2,6 @@ package har.task.com.junit.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import har.task.com.entity.HarFile;
-import har.task.com.mapper.HarMapper;
 import har.task.com.mapper.model.Har;
 import har.task.com.mapper.model.entry.HarBrowser;
 import har.task.com.mapper.model.entry.HarLog;
@@ -17,23 +16,24 @@ import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockMultipartFile;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class HarServiceImlTest {
-
-    private ObjectMapper mapper = new ObjectMapper();
+    ObjectMapper mapper = new ObjectMapper();
 
     @Mock
-    private HarMapper harMapper;
+    private ObjectMapper objectMapper;
 
     @Mock
     private HarFileRepository harRepository;
@@ -50,8 +50,8 @@ public class HarServiceImlTest {
     @Test
     public void saveFileTest() throws IOException {
         Har har = generateHar();
-        when(harMapper.mapFromFile(any(File.class))).thenReturn(har);
-        when(harMapper.asString(any())).thenReturn(mapper.writeValueAsString(har));
+        when(objectMapper.readValue(any(InputStream.class), any(Class.class))).thenReturn(har);
+        when(objectMapper.writeValueAsString(any(Har.class))).thenReturn(mapper.writeValueAsString(har));
 
         HarLog log = har.getLog();
         when(harRepository.save(any(HarFile.class))).thenReturn(new HarFile(log.getBrowser().getName(), log.getVersion(), mapper.writeValueAsString(har)));
@@ -70,7 +70,7 @@ public class HarServiceImlTest {
         HarFile harFile = new HarFile(har.getLog().getBrowser().getName(), har.getLog().getVersion(), mapper.writeValueAsString(har));
 
         when(harRepository.findById(anyLong())).thenReturn(Optional.of(harFile));
-        when(harMapper.mapFromString(anyString())).thenReturn(har);
+        when(objectMapper.readValue(anyString(), any(Class.class))).thenReturn(har);
 
         Har getByService = service.getHarFile(anyLong());
         assertEquals(getByService.getLog().getBrowser().getName(), har.getLog().getBrowser().getName());
@@ -93,7 +93,4 @@ public class HarServiceImlTest {
     private Long randomLong() {
         return (long) (Math.random() * 100000);
     }
-
-
-
 }
