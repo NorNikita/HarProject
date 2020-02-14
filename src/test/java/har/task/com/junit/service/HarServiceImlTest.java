@@ -68,7 +68,6 @@ public class HarServiceImlTest {
         HarFile harFile = new HarFile(har.getLog().getBrowser().getName(), har.getLog().getVersion(), mapper.writeValueAsString(har));
 
         when(harRepository.findById(anyLong())).thenReturn(Optional.of(harFile));
-        when(objectMapper.readValue(anyString(), any(Class.class))).thenReturn(har);
 
         Har getByService = service.getHarFile(anyLong());
         assertEquals(getByService.getLog().getBrowser().getName(), har.getLog().getBrowser().getName());

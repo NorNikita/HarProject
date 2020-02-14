@@ -54,7 +54,7 @@ public class HarControllerTest{
                 .andReturn();
 
         assertEquals(HttpStatus.OK.value(), result.getResponse().getStatus());
-        assertEquals(MediaType.APPLICATION_JSON_UTF8_VALUE, result.getResponse().getContentType());
+        assertEquals(MediaType.APPLICATION_JSON_VALUE, result.getResponse().getContentType());
     }
 
     @Test
@@ -72,7 +72,7 @@ public class HarControllerTest{
     @Test
     public void updateFileTest() throws Exception {
         when(service.updateHarFile(anyLong(), any(MultipartFile.class))).thenReturn(new Har());
-        MockMultipartFile file = new MockMultipartFile("file", "some.har", MediaType.APPLICATION_JSON_UTF8_VALUE, RandomUtils.randomContent());
+        MockMultipartFile file = new MockMultipartFile("file", "some.har", MediaType.APPLICATION_JSON_VALUE, RandomUtils.randomContent());
 
         MockMultipartHttpServletRequestBuilder builder = multipart("/update/{id}", RandomUtils.randomLong());
         builder.with((request) -> {
@@ -86,7 +86,7 @@ public class HarControllerTest{
                 .andReturn();
 
         assertEquals(HttpStatus.OK.value(), result.getResponse().getStatus());
-        assertEquals(MediaType.APPLICATION_JSON_UTF8_VALUE, result.getResponse().getContentType());
+        assertEquals(MediaType.APPLICATION_JSON_VALUE, result.getResponse().getContentType());
     }
 
 }
