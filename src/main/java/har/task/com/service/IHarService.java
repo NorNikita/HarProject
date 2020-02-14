@@ -2,8 +2,8 @@ package har.task.com.service;
 
 import har.task.com.entity.HarFile;
 import har.task.com.entity.InnerModelData;
-import har.task.com.mapper.innermodel.TestProfile;
-import har.task.com.mapper.model.Har;
+import har.task.com.datamodel.innermodel.TestProfile;
+import har.task.com.datamodel.harmodel.Har;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;

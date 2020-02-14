@@ -1,6 +1,6 @@
-package har.task.com.mapper.innermodel;
+package har.task.com.datamodel.innermodel;
 
-import har.task.com.mapper.model.entry.HttpMethod;
+import har.task.com.datamodel.harmodel.entry.HttpMethod;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;

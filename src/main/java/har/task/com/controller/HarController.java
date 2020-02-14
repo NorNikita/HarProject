@@ -1,6 +1,6 @@
 package har.task.com.controller;
 
-import har.task.com.mapper.model.Har;
+import har.task.com.datamodel.harmodel.Har;
 import har.task.com.service.IHarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

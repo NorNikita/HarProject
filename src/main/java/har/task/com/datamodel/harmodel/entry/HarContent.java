@@ -1,4 +1,4 @@
-package har.task.com.mapper.model.entry;
+package har.task.com.datamodel.harmodel.entry;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -9,12 +9,11 @@ import lombok.Setter;
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class HarParams {
+class HarContent {
 
-    private String name;
-    private String value;
-    private String fileName;
-    private String contentType;
+    private Long size;
+    private Long compression;
+    private String mimeType;
+    private String text;
     private String comment;
-
 }

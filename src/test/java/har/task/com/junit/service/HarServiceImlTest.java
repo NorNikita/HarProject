@@ -2,9 +2,9 @@ package har.task.com.junit.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import har.task.com.entity.HarFile;
-import har.task.com.mapper.model.Har;
-import har.task.com.mapper.model.entry.HarBrowser;
-import har.task.com.mapper.model.entry.HarLog;
+import har.task.com.datamodel.harmodel.Har;
+import har.task.com.datamodel.harmodel.entry.HarBrowser;
+import har.task.com.datamodel.harmodel.entry.HarLog;
 import har.task.com.repository.HarFileRepository;
 import har.task.com.repository.InnerModelDataRepository;
 import har.task.com.service.impl.HarServiceImpl;

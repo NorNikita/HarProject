@@ -1,4 +1,4 @@
-package har.task.com.mapper.model.entry;
+package har.task.com.datamodel.harmodel.entry;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

@@ -1,4 +1,4 @@
-package har.task.com.mapper.model.entry;
+package har.task.com.datamodel.harmodel.entry;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -12,16 +12,17 @@ import java.util.List;
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-class HarResponse {
+public class HarRequest {
 
-    private Long status;
-    private String statusText;
+    private HttpMethod method;
+    private String url;
     private String httpVersion;
     private List<HarCookies> cookies = new ArrayList<>();
     private List<HarHeaders> headers = new ArrayList<>();
-    private HarContent content;
-    private String redirectURL;
+    private List<HarQueryString> queryString = new ArrayList<>();
+    private HarPostData postData;
     private Long headersSize;
     private Long bodySize;
     private String comment;
+
 }

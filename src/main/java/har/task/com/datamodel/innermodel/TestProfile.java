@@ -1,4 +1,4 @@
-package har.task.com.mapper.innermodel;
+package har.task.com.datamodel.innermodel;
 
 import lombok.Getter;
 import lombok.Setter;

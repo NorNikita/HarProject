@@ -1,4 +1,4 @@
-package har.task.com.mapper.model.entry;
+package har.task.com.datamodel.harmodel.entry;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -9,9 +9,14 @@ import lombok.Setter;
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class HarHeaders {
+class HarTimings {
 
-    private String name;
-    private String value;
+    private Long blocked;
+    private Long dns;
+    private Long connect;
+    private Long send;
+    private Long wait;
+    private Long receive;
+    private Long ssl;
     private String comment;
 }

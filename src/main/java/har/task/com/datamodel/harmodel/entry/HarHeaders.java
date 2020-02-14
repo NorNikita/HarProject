@@ -1,4 +1,4 @@
-package har.task.com.mapper.model.entry;
+package har.task.com.datamodel.harmodel.entry;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -9,10 +9,9 @@ import lombok.Setter;
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class HarBrowser {
+public class HarHeaders {
 
     private String name;
-    private String version;
+    private String value;
     private String comment;
-
 }

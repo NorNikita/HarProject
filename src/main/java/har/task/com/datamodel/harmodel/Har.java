@@ -1,8 +1,8 @@
-package har.task.com.mapper.model;
+package har.task.com.datamodel.harmodel;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import har.task.com.mapper.model.entry.HarLog;
+import har.task.com.datamodel.harmodel.entry.HarLog;
 import lombok.Getter;
 import lombok.Setter;
 

@@ -1,8 +1,8 @@
 package har.task.com.junit.controller;
 
 import har.task.com.controller.HarController;
-import har.task.com.mapper.model.Har;
-import har.task.com.mapper.model.entry.HttpMethod;
+import har.task.com.datamodel.harmodel.Har;
+import har.task.com.datamodel.harmodel.entry.HttpMethod;
 import har.task.com.service.IHarService;
 import org.junit.Before;
 import org.junit.Test;

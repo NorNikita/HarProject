@@ -1,4 +1,4 @@
-package har.task.com.mapper.model.entry;
+package har.task.com.datamodel.harmodel.entry;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -12,15 +12,13 @@ import java.util.Date;
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-class HarAfterRequest {
+class HarPages {
 
     @JsonFormat(shape = JsonFormat.Shape.STRING)
-    private Date expires;
+    private Date startedDateTime;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING)
-    private Date lastAccess;
-
-    private String eTag;
-    private Long hitCount;
+    private String id;
+    private String title;
+    private HarPageTimings pageTimings;
     private String comment;
 }
