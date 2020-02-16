@@ -31,8 +31,8 @@ public class HarServiceImpl implements IHarService {
     private InnerModelDataRepository modelRepository;
 
     @Autowired
-    public HarServiceImpl(HarFileRepository harRepository, RabbitTemplate rabbitTemplate, InnerModelDataRepository modelRepository) {
-        this.objectMapper = new ObjectMapper();
+    public HarServiceImpl(ObjectMapper objectMapper, HarFileRepository harRepository, RabbitTemplate rabbitTemplate, InnerModelDataRepository modelRepository) {
+        this.objectMapper = objectMapper;
         this.harRepository = harRepository;
         this.rabbitTemplate = rabbitTemplate;
         this.modelRepository = modelRepository;
