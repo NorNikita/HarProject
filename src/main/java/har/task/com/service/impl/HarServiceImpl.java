@@ -1,7 +1,7 @@
 package har.task.com.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import har.task.com.controller.exception.FileNotFoundException;
+import har.task.com.controller.exception.HarFileNotFoundException;
 import har.task.com.entity.HarFile;
 import har.task.com.entity.InnerModelData;
 import har.task.com.datamodel.innermodel.Request;
@@ -57,7 +57,7 @@ public class HarServiceImpl implements IHarService {
 
     @Override
     public Har getHarFile(Long id) throws IOException {
-        HarFile harFile = harRepository.findById(id).orElseThrow(() -> new FileNotFoundException("File with id = " + id + " not found"));
+        HarFile harFile = harRepository.findById(id).orElseThrow(() -> new HarFileNotFoundException("File with id = " + id + " not found"));
         return objectMapper.readValue(harFile.getContent(), Har.class);
     }
 
@@ -69,7 +69,7 @@ public class HarServiceImpl implements IHarService {
     @Override
     public Har updateHarFile(Long id, MultipartFile multipartFile) throws IOException {
         HarFile harFile = harRepository.findById(id)
-                .orElseThrow(() -> new FileNotFoundException("File with id = " + id + " not found! Can not update"));
+                .orElseThrow(() -> new HarFileNotFoundException("File with id = " + id + " not found! Can not update"));
 
         Har har = objectMapper.readValue(multipartFile.getInputStream(), Har.class);
         HarLog log = har.getLog();

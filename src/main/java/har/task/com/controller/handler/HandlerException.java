@@ -1,6 +1,6 @@
 package har.task.com.controller.handler;
 
-import har.task.com.controller.exception.FileNotFoundException;
+import har.task.com.controller.exception.HarFileNotFoundException;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.http.HttpStatus;
@@ -15,8 +15,8 @@ import java.io.IOException;
 public class HandlerException {
 
     @ResponseBody
-    @ExceptionHandler(FileNotFoundException.class)
-    public ResponseEntity<ExceptionFormat> notFound(FileNotFoundException exc) {
+    @ExceptionHandler(HarFileNotFoundException.class)
+    public ResponseEntity<ExceptionFormat> notFound(HarFileNotFoundException exc) {
         return new ResponseEntity<>(new ExceptionFormat(exc.getMessage()), HttpStatus.NOT_FOUND);
     }
 
