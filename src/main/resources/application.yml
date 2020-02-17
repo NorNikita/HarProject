@@ -18,6 +18,10 @@ spring:
     multipart:
       max-file-size: 10MB
 
+  rabbitmq:
+    host: localhost
+    queueName: harQueue
+
 logging:
   level:
     liquibase: INFO
