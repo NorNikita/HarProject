@@ -1,0 +1,31 @@
+some: 9119
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost/test_harproject?stringtype=unspecified
+    username: postgres
+    password: 271828
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+
+    properties.hibernate.jdbc.lob.non_contextual_creation: true
+    show-sql: true
+
+  liquibase:
+    change-log: classpath:/db/changelog/changelog-master.xml
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+
+  rabbitmq:
+    host: localhost
+    queueName: testHarQueue
+
+logging:
+  level:
+    liquibase: INFO
+
