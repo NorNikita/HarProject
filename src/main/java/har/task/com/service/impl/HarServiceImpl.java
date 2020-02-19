@@ -13,6 +13,7 @@ import har.task.com.repository.InnerModelDataRepository;
 import har.task.com.service.IHarService;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -24,6 +25,9 @@ import java.util.stream.Stream;
 
 @Service
 public class HarServiceImpl implements IHarService {
+
+    @Value("${spring.rabbitmq.queueName}")
+    private String queueName;
 
     private ObjectMapper objectMapper;
     private HarFileRepository harRepository;
@@ -47,12 +51,12 @@ public class HarServiceImpl implements IHarService {
         String nameBrowser = log.getBrowser() == null ? null : log.getBrowser().getName();
         String content = objectMapper.writeValueAsString(har);
 
-        return harRepository.save(new HarFile(version, nameBrowser, content));
+        return harRepository.save(new HarFile(nameBrowser, version, content));
     }
 
     @Override
     public void sendContentInQueue(HarFile entity) {
-        rabbitTemplate.convertAndSend("harQueue", entity.getContent());
+        rabbitTemplate.convertAndSend(queueName, entity.getContent());
     }
 
     @Override

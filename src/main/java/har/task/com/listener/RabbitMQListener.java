@@ -23,7 +23,7 @@ public class RabbitMQListener {
         this.service = service;
     }
 
-    @RabbitListener(queues = "harQueue")
+    @RabbitListener(queues = {"harQueue", "testHarQueue"})
     public void getHarFile(String content) throws IOException {
         TestProfile testProfile = service.transformToInnerModel(content);
         InnerModelData innerModelData = service.saveModel(testProfile);
