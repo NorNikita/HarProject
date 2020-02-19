@@ -26,7 +26,7 @@ public class RabbitMQListener {
         this.service = service;
     }
 
-    @RabbitListener(queues = {"harQueue", "testHarQueue"})
+    @RabbitListener(queues = "${spring.rabbitmq.queueName}")
     public void getHarFile(String content) throws IOException {
         counter++;
         TestProfile testProfile = service.transformToInnerModel(content);
