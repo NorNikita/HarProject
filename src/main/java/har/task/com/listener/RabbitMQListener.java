@@ -3,6 +3,7 @@ package har.task.com.listener;
 import har.task.com.entity.InnerModelData;
 import har.task.com.datamodel.innermodel.TestProfile;
 import har.task.com.service.IHarService;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -16,6 +17,8 @@ import java.io.IOException;
 @Component
 public class RabbitMQListener {
 
+    @Getter
+    private int counter;
     private IHarService service;
 
     @Autowired
@@ -25,9 +28,13 @@ public class RabbitMQListener {
 
     @RabbitListener(queues = {"harQueue", "testHarQueue"})
     public void getHarFile(String content) throws IOException {
+        counter++;
         TestProfile testProfile = service.transformToInnerModel(content);
         InnerModelData innerModelData = service.saveModel(testProfile);
-
         log.info("inner harmodel data saved in database! Count request {}", innerModelData.getCountRequest());
+    }
+
+    public void initCounter() {
+        this.counter = 0;
     }
 }
