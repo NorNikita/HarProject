@@ -2,12 +2,11 @@ package har.task.com.end2end.controller;
 
 import har.task.com.end2end.BaseControllerTest;
 import har.task.com.listener.RabbitMQListener;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.test.web.servlet.MvcResult;
-
-import java.io.InputStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.multipart;
@@ -20,12 +19,10 @@ class HarFileLoaderTest extends BaseControllerTest {
     @Autowired
     private RabbitMQListener rabbitMQListener;
 
-    @Test
-    void saveFileTest() throws Exception {
+    @ParameterizedTest
+    @MethodSource("har.task.com.end2end.controller.HarFileSource#fileSource")
+    void saveFileTest(MockMultipartFile file) throws Exception {
         rabbitMQListener.initCounter();
-
-        InputStream systemResourceAsStream = ClassLoader.getSystemResourceAsStream("ru.wiktionary.org.har");
-        MockMultipartFile file = new MockMultipartFile("file", systemResourceAsStream);
 
         MvcResult result = mockMvc.perform(multipart("http://localhost:" + port + "/load").file(file))
                 .andDo(print())
