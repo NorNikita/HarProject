@@ -1,4 +1,4 @@
-package com.pflb.hartask.controller;
+package com.pflb.hartask.end2end.controller;
 
 import org.springframework.mock.web.MockMultipartFile;
 
