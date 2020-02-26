@@ -1,6 +1,6 @@
-package com.pflb.hartask.datamodel.innermodel;
+package com.pflb.hartask.model.innermodel;
 
-import com.pflb.hartask.datamodel.harmodel.entry.HttpMethod;
+import com.pflb.hartask.model.harmodel.entry.HttpMethod;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;

@@ -1,4 +1,4 @@
-package com.pflb.hartask.datamodel.innermodel;
+package com.pflb.hartask.model.innermodel;
 
 import lombok.Getter;
 import lombok.Setter;

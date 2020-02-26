@@ -1,4 +1,4 @@
-package com.pflb.hartask.datamodel.harmodel.entry;
+package com.pflb.hartask.model.harmodel.entry;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -9,9 +9,10 @@ import lombok.Setter;
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-class HarPageTimings {
+public class HarBrowser {
 
-    private Long onContentLoad;
-    private Long onLoad;
+    private String name;
+    private String version;
     private String comment;
+
 }

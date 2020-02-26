@@ -1,6 +1,6 @@
 package com.pflb.hartask.end2end.controller;
 
-import com.pflb.hartask.datamodel.harmodel.entry.HttpMethod;
+import com.pflb.hartask.model.harmodel.entry.HttpMethod;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.jupiter.params.ParameterizedTest;

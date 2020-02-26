@@ -1,8 +1,8 @@
 package com.pflb.hartask.junit.controller;
 
 import com.pflb.hartask.controller.HarController;
-import com.pflb.hartask.datamodel.harmodel.Har;
-import com.pflb.hartask.datamodel.harmodel.entry.HttpMethod;
+import com.pflb.hartask.model.harmodel.Har;
+import com.pflb.hartask.model.harmodel.entry.HttpMethod;
 import com.pflb.hartask.service.IHarService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

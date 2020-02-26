@@ -1,4 +1,4 @@
-package com.pflb.hartask.datamodel.harmodel.entry;
+package com.pflb.hartask.model.harmodel.entry;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -12,15 +12,22 @@ import java.util.Date;
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-class HarAfterRequest {
+public class HarEntries {
+
+    private String pageref;
 
     @JsonFormat(shape = JsonFormat.Shape.STRING)
-    private Date expires;
+    private Date startedDateTime;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING)
-    private Date lastAccess;
+    private Long time;
 
-    private String eTag;
-    private Long hitCount;
+    private HarRequest request;
+    private HarResponse response;
+    private HarCache cache;
+    private HarTimings timings;
+
+    private String serverIPAddress;
+    private String connection;
     private String comment;
+
 }

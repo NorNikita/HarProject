@@ -1,4 +1,4 @@
-package com.pflb.hartask.datamodel.harmodel.entry;
+package com.pflb.hartask.model.harmodel.entry;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -12,18 +12,15 @@ import java.util.Date;
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-class HarCookies {
-
-    private String name;
-    private String value;
-    private String path;
-    private String domain;
+class HarAfterRequest {
 
     @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Date expires;
 
-    private Boolean httpOnly;
-    private Boolean secure;
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
+    private Date lastAccess;
 
+    private String eTag;
+    private Long hitCount;
     private String comment;
 }

@@ -2,10 +2,10 @@ package com.pflb.hartask.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pflb.hartask.controller.exception.HarFileNotFoundException;
-import com.pflb.hartask.datamodel.harmodel.Har;
-import com.pflb.hartask.datamodel.harmodel.entry.*;
-import com.pflb.hartask.datamodel.innermodel.Request;
-import com.pflb.hartask.datamodel.innermodel.TestProfile;
+import com.pflb.hartask.model.harmodel.Har;
+import com.pflb.hartask.model.harmodel.entry.*;
+import com.pflb.hartask.model.innermodel.Request;
+import com.pflb.hartask.model.innermodel.TestProfile;
 import com.pflb.hartask.entity.HarFile;
 import com.pflb.hartask.entity.InnerModelData;
 import com.pflb.hartask.repository.HarFileRepository;

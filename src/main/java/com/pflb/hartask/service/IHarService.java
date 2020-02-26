@@ -2,8 +2,8 @@ package com.pflb.hartask.service;
 
 import com.pflb.hartask.entity.HarFile;
 import com.pflb.hartask.entity.InnerModelData;
-import com.pflb.hartask.datamodel.innermodel.TestProfile;
-import com.pflb.hartask.datamodel.harmodel.Har;
+import com.pflb.hartask.model.innermodel.TestProfile;
+import com.pflb.hartask.model.harmodel.Har;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;

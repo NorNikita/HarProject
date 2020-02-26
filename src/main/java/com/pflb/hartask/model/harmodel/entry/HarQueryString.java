@@ -1,4 +1,4 @@
-package com.pflb.hartask.datamodel.harmodel.entry;
+package com.pflb.hartask.model.harmodel.entry;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -11,7 +11,7 @@ import lombok.Setter;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @AllArgsConstructor
-public class HarHeaders {
+public class HarQueryString {
 
     private String name;
     private String value;

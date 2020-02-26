@@ -1,6 +1,6 @@
 package com.pflb.hartask.controller;
 
-import com.pflb.hartask.datamodel.harmodel.Har;
+import com.pflb.hartask.model.harmodel.Har;
 import com.pflb.hartask.service.IHarService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

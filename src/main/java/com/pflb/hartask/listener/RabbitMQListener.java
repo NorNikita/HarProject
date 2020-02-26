@@ -1,6 +1,6 @@
 package com.pflb.hartask.listener;
 
-import com.pflb.hartask.datamodel.innermodel.TestProfile;
+import com.pflb.hartask.model.innermodel.TestProfile;
 import com.pflb.hartask.entity.InnerModelData;
 import com.pflb.hartask.service.IHarService;
 import lombok.Getter;

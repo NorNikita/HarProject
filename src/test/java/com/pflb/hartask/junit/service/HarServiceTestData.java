@@ -1,8 +1,7 @@
 package com.pflb.hartask.junit.service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.pflb.hartask.datamodel.harmodel.Har;
-import com.pflb.hartask.datamodel.innermodel.TestProfile;
+import com.pflb.hartask.model.harmodel.Har;
+import com.pflb.hartask.model.innermodel.TestProfile;
 import com.pflb.hartask.entity.HarFile;
 import com.pflb.hartask.entity.InnerModelData;
 import org.junit.jupiter.params.provider.Arguments;

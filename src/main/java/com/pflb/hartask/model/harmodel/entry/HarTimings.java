@@ -1,4 +1,4 @@
-package com.pflb.hartask.datamodel.harmodel.entry;
+package com.pflb.hartask.model.harmodel.entry;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -9,11 +9,14 @@ import lombok.Setter;
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
-class HarContent {
+class HarTimings {
 
-    private Long size;
-    private Long compression;
-    private String mimeType;
-    private String text;
+    private Long blocked;
+    private Long dns;
+    private Long connect;
+    private Long send;
+    private Long wait;
+    private Long receive;
+    private Long ssl;
     private String comment;
 }
