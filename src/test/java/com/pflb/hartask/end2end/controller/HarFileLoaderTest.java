@@ -22,7 +22,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
-@TestPropertySource("/application.yml")
 @AutoConfigureMockMvc
 @Sql(value = "/db/add-data.sql", executionPhase = Sql.ExecutionPhase.BEFORE_TEST_METHOD)
 @Sql(value = "/db/drop.sql", executionPhase = Sql.ExecutionPhase.AFTER_TEST_METHOD)
