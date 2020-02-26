@@ -1,13 +1,12 @@
 package com.pflb.hartask.listener;
 
-import com.pflb.hartask.entity.InnerModelData;
 import com.pflb.hartask.datamodel.innermodel.TestProfile;
+import com.pflb.hartask.entity.InnerModelData;
 import com.pflb.hartask.service.IHarService;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.EnableRabbit;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -21,7 +20,6 @@ public class RabbitMQListener {
     private int counter;
     private IHarService service;
 
-    @Autowired
     public RabbitMQListener(IHarService service) {
         this.service = service;
     }

@@ -2,7 +2,6 @@ package com.pflb.hartask.controller;
 
 import com.pflb.hartask.entity.HarFile;
 import com.pflb.hartask.service.IHarService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,7 +15,6 @@ public class HarFileLoader {
 
     private IHarService service;
 
-    @Autowired
     public HarFileLoader(IHarService service) {
         this.service = service;
     }

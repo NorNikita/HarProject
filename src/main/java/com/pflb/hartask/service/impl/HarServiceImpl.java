@@ -2,17 +2,16 @@ package com.pflb.hartask.service.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.pflb.hartask.controller.exception.HarFileNotFoundException;
-import com.pflb.hartask.entity.HarFile;
-import com.pflb.hartask.entity.InnerModelData;
-import com.pflb.hartask.datamodel.innermodel.Request;
-import com.pflb.hartask.datamodel.innermodel.TestProfile;
 import com.pflb.hartask.datamodel.harmodel.Har;
 import com.pflb.hartask.datamodel.harmodel.entry.*;
+import com.pflb.hartask.datamodel.innermodel.Request;
+import com.pflb.hartask.datamodel.innermodel.TestProfile;
+import com.pflb.hartask.entity.HarFile;
+import com.pflb.hartask.entity.InnerModelData;
 import com.pflb.hartask.repository.HarFileRepository;
 import com.pflb.hartask.repository.InnerModelDataRepository;
 import com.pflb.hartask.service.IHarService;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -26,16 +25,18 @@ import java.util.stream.Stream;
 @Service
 public class HarServiceImpl implements IHarService {
 
-    @Value("${spring.rabbitmq.queueName}")
     private String queueName;
-
     private ObjectMapper objectMapper;
     private HarFileRepository harRepository;
     private RabbitTemplate rabbitTemplate;
     private InnerModelDataRepository modelRepository;
 
-    @Autowired
-    public HarServiceImpl(ObjectMapper objectMapper, HarFileRepository harRepository, RabbitTemplate rabbitTemplate, InnerModelDataRepository modelRepository) {
+    public HarServiceImpl(@Value("${spring.rabbitmq.queueName}") String queueName,
+                          ObjectMapper objectMapper,
+                          HarFileRepository harRepository,
+                          RabbitTemplate rabbitTemplate,
+                          InnerModelDataRepository modelRepository) {
+        this.queueName = queueName;
         this.objectMapper = objectMapper;
         this.harRepository = harRepository;
         this.rabbitTemplate = rabbitTemplate;

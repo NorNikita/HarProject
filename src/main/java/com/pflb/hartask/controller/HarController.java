@@ -2,7 +2,6 @@ package com.pflb.hartask.controller;
 
 import com.pflb.hartask.datamodel.harmodel.Har;
 import com.pflb.hartask.service.IHarService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -15,9 +14,13 @@ public class HarController {
 
     private IHarService service;
 
-    @Autowired
     public HarController(IHarService service) {
         this.service = service;
+    }
+
+    @GetMapping("/check")
+    public ResponseEntity check() {
+        return ResponseEntity.ok(HttpStatus.OK);
     }
 
     @GetMapping("/getFile/{id}")
