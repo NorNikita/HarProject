@@ -43,7 +43,7 @@ class HarServiceImlTest {
     private HarServiceImpl service;
 
     @ParameterizedTest()
-    @MethodSource("com.pflb.hartask.junit.service.HarServiceTestData#harStream")
+    @MethodSource("com.pflb.hartask.junit.args.HarServiceTestStreamArgs#harStream")
     void saveFileTest(Har har, HarFile file, MultipartFile multipartFile) throws IOException {
         when(objectMapper.readValue(any(InputStream.class), eq(Har.class))).thenReturn(har);
         when(objectMapper.writeValueAsString(any(Har.class))).thenReturn(mapper.writeValueAsString(har));
@@ -55,7 +55,7 @@ class HarServiceImlTest {
     }
 
     @ParameterizedTest
-    @MethodSource("com.pflb.hartask.junit.service.HarServiceTestData#harStream")
+    @MethodSource("com.pflb.hartask.junit.args.HarServiceTestStreamArgs#harStream")
     void getHarFileTest(Har har, HarFile file, MultipartFile multipartFile, Long id) throws IOException {
         when(harRepository.findById(anyLong())).thenReturn(Optional.of(file));
         when(objectMapper.readValue(anyString(), eq(Har.class))).thenReturn(har);
@@ -68,7 +68,7 @@ class HarServiceImlTest {
     }
 
     @ParameterizedTest
-    @MethodSource({"com.pflb.hartask.junit.service.HarServiceTestData#harStream"})
+    @MethodSource({"com.pflb.hartask.junit.args.HarServiceTestStreamArgs#harStream"})
     void updateHarFileTest(Har har, HarFile file, MultipartFile multipartFile, Long id) throws IOException {
         when(harRepository.findById(anyLong())).thenReturn(Optional.of(file));
         when(objectMapper.readValue(any(InputStream.class), eq(Har.class))).thenReturn(har);
@@ -83,7 +83,7 @@ class HarServiceImlTest {
     }
 
     @ParameterizedTest
-    @MethodSource("com.pflb.hartask.junit.service.HarServiceTestData#testProfileStream")
+    @MethodSource("com.pflb.hartask.junit.args.HarServiceTestStreamArgs#testProfileStream")
     void saveModelTest(TestProfile testProfile, InnerModelData innerModelData) throws IOException {
         when(objectMapper.writeValueAsString(any(TestProfile.class))).thenReturn(mapper.writeValueAsString(testProfile));
         when(modelRepository.save(any(InnerModelData.class))).thenReturn(innerModelData);
@@ -95,7 +95,7 @@ class HarServiceImlTest {
     }
 
     @ParameterizedTest
-    @MethodSource("com.pflb.hartask.junit.service.HarServiceTestData#harStream")
+    @MethodSource("com.pflb.hartask.junit.args.HarServiceTestStreamArgs#harStream")
     void transformToInnerModelTest(Har har) throws IOException {
         when(objectMapper.readValue(anyString(), eq(Har.class))).thenReturn(har);
 
