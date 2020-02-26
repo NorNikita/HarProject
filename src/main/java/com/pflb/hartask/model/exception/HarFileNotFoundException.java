@@ -1,4 +1,4 @@
-package com.pflb.hartask.controller.exception;
+package com.pflb.hartask.model.exception;
 
 public class HarFileNotFoundException extends RuntimeException {
 

@@ -1,6 +1,6 @@
 package com.pflb.hartask.controller.handler;
 
-import com.pflb.hartask.controller.exception.HarFileNotFoundException;
+import com.pflb.hartask.model.exception.HarFileNotFoundException;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.springframework.http.HttpStatus;

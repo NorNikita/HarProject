@@ -2,8 +2,8 @@ package com.pflb.hartask.junit.service;
 
 import com.pflb.hartask.model.harmodel.Har;
 import com.pflb.hartask.model.innermodel.TestProfile;
-import com.pflb.hartask.entity.HarFile;
-import com.pflb.hartask.entity.InnerModelData;
+import com.pflb.hartask.model.entity.HarFile;
+import com.pflb.hartask.model.entity.InnerModelData;
 import org.junit.jupiter.params.provider.Arguments;
 import org.springframework.http.MediaType;
 import org.springframework.mock.web.MockMultipartFile;

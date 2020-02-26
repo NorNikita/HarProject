@@ -1,6 +1,6 @@
 package com.pflb.hartask.controller;
 
-import com.pflb.hartask.entity.HarFile;
+import com.pflb.hartask.model.entity.HarFile;
 import com.pflb.hartask.service.IHarService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

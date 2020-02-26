@@ -1,7 +1,7 @@
 package com.pflb.hartask.junit.controller;
 
 import com.pflb.hartask.controller.HarFileLoader;
-import com.pflb.hartask.entity.HarFile;
+import com.pflb.hartask.model.entity.HarFile;
 import com.pflb.hartask.service.IHarService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

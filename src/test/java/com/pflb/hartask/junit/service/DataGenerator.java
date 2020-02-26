@@ -5,8 +5,8 @@ import com.pflb.hartask.model.harmodel.Har;
 import com.pflb.hartask.model.harmodel.entry.*;
 import com.pflb.hartask.model.innermodel.Request;
 import com.pflb.hartask.model.innermodel.TestProfile;
-import com.pflb.hartask.entity.HarFile;
-import com.pflb.hartask.entity.InnerModelData;
+import com.pflb.hartask.model.entity.HarFile;
+import com.pflb.hartask.model.entity.InnerModelData;
 
 import java.io.IOException;
 import java.util.*;

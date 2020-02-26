@@ -1,7 +1,7 @@
 package com.pflb.hartask.service;
 
-import com.pflb.hartask.entity.HarFile;
-import com.pflb.hartask.entity.InnerModelData;
+import com.pflb.hartask.model.entity.HarFile;
+import com.pflb.hartask.model.entity.InnerModelData;
 import com.pflb.hartask.model.innermodel.TestProfile;
 import com.pflb.hartask.model.harmodel.Har;
 import org.springframework.web.multipart.MultipartFile;

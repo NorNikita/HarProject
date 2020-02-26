@@ -1,11 +1,11 @@
 package com.pflb.hartask.junit.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.pflb.hartask.controller.exception.HarFileNotFoundException;
+import com.pflb.hartask.model.exception.HarFileNotFoundException;
 import com.pflb.hartask.model.harmodel.Har;
 import com.pflb.hartask.model.innermodel.TestProfile;
-import com.pflb.hartask.entity.HarFile;
-import com.pflb.hartask.entity.InnerModelData;
+import com.pflb.hartask.model.entity.HarFile;
+import com.pflb.hartask.model.entity.InnerModelData;
 import com.pflb.hartask.repository.HarFileRepository;
 import com.pflb.hartask.repository.InnerModelDataRepository;
 import com.pflb.hartask.service.impl.HarServiceImpl;

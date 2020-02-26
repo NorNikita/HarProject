@@ -1,4 +1,4 @@
-package com.pflb.hartask.entity;
+package com.pflb.hartask.model.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
