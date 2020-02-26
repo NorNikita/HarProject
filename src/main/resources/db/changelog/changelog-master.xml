@@ -6,7 +6,6 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
-    <include file="/db/changelog/changes/create-table-har_file-1.xml"/>
-    <include file="/db/changelog/changes/create-table-inner_model_data-2.xml"/>
-
+    <include file="/db/changelog/v-1.0/changelog-v.1.0-cumulative.xml"/>
+    
 </databaseChangeLog>

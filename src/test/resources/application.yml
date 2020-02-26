@@ -7,7 +7,7 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: create-drop
 
     properties.hibernate.jdbc.lob.non_contextual_creation: true
     show-sql: true
