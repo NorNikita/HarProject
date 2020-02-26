@@ -1,4 +1,4 @@
-package com.pflb.hartask.end2end.controller;
+package com.pflb.hartask.end2end.args.provider;
 
 import org.springframework.mock.web.MockMultipartFile;
 
@@ -6,9 +6,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.stream.Stream;
 
-public class HarFileSource {
+public class MockMultipartFileSource {
 
-    static Stream<MockMultipartFile> fileSource() {
+    public static MockMultipartFile getFile() {
         InputStream systemResourceAsStream = ClassLoader.getSystemResourceAsStream("ru.wiktionary.org.har");
         MockMultipartFile file = null;
 
@@ -18,6 +18,6 @@ public class HarFileSource {
             e.printStackTrace();
         }
 
-        return Stream.of(file);
+        return file;
     }
 }

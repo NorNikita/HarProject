@@ -35,7 +35,7 @@ public class HarFileLoaderTest {
     private RabbitMQListener rabbitMQListener;
 
     @ParameterizedTest
-    @MethodSource("com.pflb.hartask.end2end.controller.HarFileSource#fileSource")
+    @MethodSource("com.pflb.hartask.end2end.args.ControllerStreamArgs#fileStream")
     void saveFileTest(MockMultipartFile file) throws Exception {
         rabbitMQListener.initCounter();
 

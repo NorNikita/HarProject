@@ -45,7 +45,7 @@ public class HarControllerTest {
     }
 
     @ParameterizedTest
-    @MethodSource("com.pflb.hartask.end2end.controller.HarFileSource#fileSource")
+    @MethodSource("com.pflb.hartask.end2end.args.ControllerStreamArgs#fileStream")
     void updateFileTest(MockMultipartFile file) throws Exception {
 
         MockMultipartHttpServletRequestBuilder builder = multipart("/update/{id}", 1L);
